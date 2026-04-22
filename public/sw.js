@@ -1,4 +1,4 @@
-const CACHE_NAME = 'studentbudget-v1'
+const CACHE_NAME = 'dompetfadhil-v1'
 const STATIC_ASSETS = [
   '/',
   '/index.html',

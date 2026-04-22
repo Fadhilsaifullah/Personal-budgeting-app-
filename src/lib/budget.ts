@@ -90,7 +90,11 @@ export function getCategoryTotals(expenses: Expense[]): Record<string, number> {
 }
 
 export function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount)
+  return new Intl.NumberFormat('id-ID', {
+  style: 'currency',
+  currency: 'IDR',
+  minimumFractionDigits: 0,
+}).format(amount)
 }
 
 export function getTotalSpent(expenses: Expense[]): number {

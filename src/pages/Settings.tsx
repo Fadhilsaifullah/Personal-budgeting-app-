@@ -86,7 +86,7 @@ export function Settings({ budget, onSave }: SettingsProps) {
           <div className="space-y-1.5">
             <Label htmlFor="monthly-budget" className="text-sm font-medium">Monthly Budget</Label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">$</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">Rp</span>
               <Input
                 id="monthly-budget"
                 type="number"
@@ -101,7 +101,7 @@ export function Settings({ budget, onSave }: SettingsProps) {
           <div className="space-y-1.5">
             <Label htmlFor="fixed-cost" className="text-sm font-medium">Fixed Weekly Costs</Label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">$</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">Rp</span>
               <Input
                 id="fixed-cost"
                 type="number"

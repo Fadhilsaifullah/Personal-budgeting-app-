@@ -13,9 +13,9 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["icon-512.webp"],
       manifest: {
-        name: "StudentBudget",
-        short_name: "Budget",
-        description: "Smart daily budgeting for students",
+        name: "Dompet Fadhil",
+        short_name: "Dompet",
+        description: "Control Keuangan Fadhil",
         theme_color: "#0d9488",
         background_color: "#f8fafb",
         display: "standalone",

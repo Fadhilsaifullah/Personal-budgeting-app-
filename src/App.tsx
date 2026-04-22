@@ -36,7 +36,7 @@ export default function App() {
               <div className="size-7 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground text-xs font-bold">$</span>
               </div>
-              <span className="font-semibold text-foreground tracking-tight">StudentBudget</span>
+              <span className="font-semibold text-foreground tracking-tight">Dompet Fadhil</span>
             </div>
             <span className="text-xs text-muted-foreground capitalize">{activeTab}</span>
           </div>

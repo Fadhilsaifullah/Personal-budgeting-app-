@@ -14,7 +14,7 @@ const CATEGORIES: { id: ExpenseCategory; label: string; icon: React.ElementType;
   { id: 'Others', label: 'Others', icon: MoreHorizontal, colorClass: 'bg-secondary text-secondary-foreground border-border' },
 ]
 
-const QUICK_AMOUNTS = [5, 10, 20, 50]
+const QUICK_AMOUNTS = [5000, 10000, 20000, 50000]
 
 interface AddExpenseProps {
   onAdd: (values: { amount: number; category: ExpenseCategory; note?: string }) => Promise<unknown>
@@ -57,7 +57,7 @@ export function AddExpense({ onAdd, dailyAllowance }: AddExpenseProps) {
         <CardContent className="p-5">
           <p className="text-xs font-medium text-muted-foreground mb-3 uppercase tracking-wide">Amount</p>
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-light text-muted-foreground">$</span>
+            <span className="text-2xl font-light text-muted-foreground">Rp</span>
             <Input
               type="number"
               inputMode="decimal"
@@ -79,7 +79,7 @@ export function AddExpense({ onAdd, dailyAllowance }: AddExpenseProps) {
                     : 'bg-muted text-muted-foreground border-transparent hover:bg-accent'
                 )}
               >
-                ${a}
+                {formatCurrency(a)}
               </button>
             ))}
           </div>

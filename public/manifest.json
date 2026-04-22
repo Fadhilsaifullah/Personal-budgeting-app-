@@ -1,7 +1,7 @@
 {
-  "name": "StudentBudget",
-  "short_name": "Budget",
-  "description": "Smart daily budgeting for students",
+  "name": "Dompet Fadhil",
+  "short_name": "Dompet",
+  "description": "Control Keuangan Fadhil",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f8fafb",

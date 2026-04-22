@@ -69,7 +69,7 @@ export function Insights({ budget, expenses }: InsightsProps) {
                 tickLine={false}
                 axisLine={false}
                 tick={{ fill: 'var(--muted-foreground)', fontSize: 11 }}
-                tickFormatter={(v) => `$${v}`}
+                tickFormatter={(v) => formatCurrency(v)}
               />
               {dailyAllowance > 0 && (
                 <ReferenceLine
