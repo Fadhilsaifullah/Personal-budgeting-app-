@@ -1,14 +1,17 @@
 import type { BudgetCalculation, Budget, Expense } from '@/types'
 import { differenceInDays, parseISO, format, isToday, startOfWeek, endOfWeek, isWithinInterval } from 'date-fns'
 
-export function calculateBudget(budget: Budget): BudgetCalculation {
+export function calculateBudget(budget: Budget, totalSpent: number): BudgetCalculation {
   const start = parseISO(budget.start_date)
   const end = parseISO(budget.end_date)
   const totalDays = differenceInDays(end, start) + 1
   const totalWeeks = Math.ceil(totalDays / 7)
   const totalFixedCost = budget.fixed_weekly_cost * totalWeeks
   const netUsableBudget = Math.max(0, budget.monthly_budget - totalFixedCost)
-  const dailyAllowance = totalDays > 0 ? netUsableBudget / totalDays : 0
+  const today = new Date()
+  const  remainingDays = Math.max(0, differenceInDays(end, today) + 1)  
+  const remainingBudget = Math.max(0, netUsableBudget - totalSpent)
+  const dailyAllowance = remainingDays > 0 ? remainingBudget / remainingDays : 0
 
   return { totalDays, totalWeeks, totalFixedCost, netUsableBudget, dailyAllowance }
 }

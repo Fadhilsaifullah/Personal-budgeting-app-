@@ -7,6 +7,7 @@ import { Settings } from '@/pages/Settings'
 import { useBudget } from '@/hooks/useBudget'
 import { useExpenses } from '@/hooks/useExpenses'
 import { calculateBudget } from '@/lib/budget'
+import {getTotalSpent} from '@/lib/budget'
 import type { NavTab } from '@/types'
 
 export default function App() {
@@ -14,7 +15,8 @@ export default function App() {
   const { budget, loading: budgetLoading, saveBudget } = useBudget()
   const { expenses, loading: expensesLoading, addExpense, deleteExpense } = useExpenses()
 
-  const calc = useMemo(() => (budget ? calculateBudget(budget) : null), [budget])
+  const totalSpent = useMemo(() => getTotalSpent(expenses), [expenses])
+  const calc = useMemo(() => (budget ? calculateBudget(budget, totalSpent) : null), [budget, totalSpent])
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {

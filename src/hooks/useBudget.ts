@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import { supabase } from '@/lib/supabase'
+import { supabase, APP_USER_ID } from '@/lib/supabase'
 import type { Budget } from '@/types'
 
 export function useBudget() {
@@ -22,7 +22,7 @@ export function useBudget() {
     fetchBudget()
   }, [fetchBudget])
 
-  const saveBudget = useCallback(async (values: Omit<Budget, 'id' | 'created_at' | 'updated_at'>) => {
+  const saveBudget = useCallback(async (values: Omit<Budget, 'id' | 'app_user_id' | 'created_at' | 'updated_at'>) => {
     if (budget) {
       const { data } = await supabase
         .from('budgets')
@@ -34,7 +34,7 @@ export function useBudget() {
     } else {
       const { data } = await supabase
         .from('budgets')
-        .insert({ ...values})
+        .insert({ ...values, app_user_id: APP_USER_ID })
         .select()
         .single()
       setBudget(data)
